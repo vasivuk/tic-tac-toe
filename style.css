@@ -46,6 +46,8 @@ body > div {
 
 .field {
     background-color: rgb(235, 235, 235);
+    border: none;
+    font-size: 9vh;
 }
 
 .footer {
