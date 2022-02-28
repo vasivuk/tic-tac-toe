@@ -27,6 +27,27 @@ body > div {
     padding: 20px;
 }
 
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameboard {
+    display: grid;
+    background-color: rgb(199, 199, 199);
+    width: 50vh;
+    height: 50vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+.field {
+    background-color: rgb(235, 235, 235);
+}
+
 .footer {
     background-color: rgb(150, 150, 150);
     font-weight: 600;
