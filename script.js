@@ -1,4 +1,55 @@
 const Gameboard = (() => {
-    const gameboardArray = {o, x, o, o, o, x, x, x, o};
-    return {gameboardArray};
+    const gameboardArray = ['', '', '', '', '', '', '', '', ''];
+    
+    const setField = (sign, fieldIndex) => {
+        gameboardArray[fieldIndex] = sign;
+    };
+
+    const getField = (fieldIndex) => {
+        return gameboardArray[fieldIndex];
+    }
+    return {getField, setField};
+})();
+
+const Player = (sign, name) => {
+    const getSign = () => {
+        return sign;
+    }
+
+    const getName = () => {
+        return name;
+    }
+    return {getSign, getName};
+};
+
+const displayController = (() => {
+    const fields = document.querySelectorAll('.field');
+    for (const field of fields) {
+        field.addEventListener('click', () => {
+            gameController.playGameRound(field.dataset.index);
+            updateGameboard();
+        })
+    }
+    function updateGameboard() {
+        for (let i = 0; i < fields.length; i++) {
+            fields[i].textContent = Gameboard.getField(i);
+        }
+    }
+})();
+
+const gameController = (() => {
+    const playerX = Player("x", "Vale");
+    const playerO = Player("o", "Mila");
+    let round = 1;
+    let isOver = false;
+
+    const playGameRound = (fieldIndex) => {
+        Gameboard.setField(getCurrentPlayerSign(), fieldIndex);
+        round++;
+    };
+
+    function getCurrentPlayerSign() {
+        return (round % 2 === 0) ? playerO.getSign() : playerX.getSign();
+    }
+    return {playerX, playerO, playGameRound};
 })();

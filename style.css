@@ -49,6 +49,9 @@ body > div {
     border: none;
     font-size: 9vh;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer {
