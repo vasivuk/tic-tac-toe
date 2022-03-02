@@ -50,13 +50,30 @@ const gameController = (() => {
     let isOver = false;
 
     const playGameRound = (fieldIndex) => {
-        Gameboard.setField(getCurrentPlayerSign(), fieldIndex);
-        round++;
-        displayController.setTurnMessage(`Player ${getCurrentPlayerSign().toUpperCase()} turn`);
+        if(Gameboard.getField(fieldIndex) === "" && isOver === false) {
+            Gameboard.setField(getCurrentPlayerSign(), fieldIndex);
+            if(isOver = checkIfOver(fieldIndex)){
+                displayController.setTurnMessage(`Player ${getCurrentPlayerSign().toUpperCase()} wins!`);
+                return;
+            }
+            round++;
+            displayController.setTurnMessage(`Player ${getCurrentPlayerSign().toUpperCase()} turn`);
+        }
+    }
+
+    function checkIfOver(fieldIndex) {
+        const gameIsOver = [[0,1,2], [3,4,5], [6,7,8],  //horizontal win
+                            [0,3,6], [1,4,7], [2,5,8],  //vertical win
+                            [0,4,8], [2,4,6]];          //diagonal win
+        const toCheck = gameIsOver.filter((trio) => trio.includes(parseInt(fieldIndex)));
+
+        const isOver = toCheck.some((trio) => trio.every((element) => Gameboard.getField(element) === Gameboard.getField(fieldIndex)));
+            
+        return isOver;
     }
 
     function getCurrentPlayerSign() {
         return (round % 2 === 0) ? playerO.getSign() : playerX.getSign();
     }
-    return {playGameRound};
+    return {playGameRound, isOver};
 })();
