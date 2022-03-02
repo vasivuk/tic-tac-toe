@@ -5,22 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <title>Tic-Tac-Toe</title>
 </head>
 <body>  
     <div class="header">Tic Tac Toe</div>
     <div class="main">
-        <div class="message">Player X turn</div>
-        <div class="gameboard">
-            <button class="field" data-index="0"></button>
-            <button class="field" data-index="1"></button>
-            <button class="field" data-index="2"></button>
-            <button class="field" data-index="3"></button>
-            <button class="field" data-index="4"></button>
-            <button class="field" data-index="5"></button>
-            <button class="field" data-index="6"></button>
-            <button class="field" data-index="7"></button>
-            <button class="field" data-index="8"></button>
+        <div class="player" id="playerX">
+            <span class="material-icons">account_circle</span>
+            <p class="name">Player X</p>
+        </div>
+        <div class="center-content">
+            <div class="message">Player X turn</div>
+            <div class="gameboard">
+                <button class="field" data-index="0"></button>
+                <button class="field" data-index="1"></button>
+                <button class="field" data-index="2"></button>
+                <button class="field" data-index="3"></button>
+                <button class="field" data-index="4"></button>
+                <button class="field" data-index="5"></button>
+                <button class="field" data-index="6"></button>
+                <button class="field" data-index="7"></button>
+                <button class="field" data-index="8"></button>
+            </div>
+        </div>
+        <div class="player" id="playerO">
+            <span class="material-icons">account_circle</span>
+            <p class="name">Player O</p>
         </div>
     </div>
     <div class="footer">Made by vasivuk</div>

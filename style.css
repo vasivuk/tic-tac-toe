@@ -28,16 +28,41 @@ body > div {
 }
 
 .main {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+}
+
+.player {
+    align-self: flex-start;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+}
+
+.player > span {
+    font-size: 8rem;
+    color: gray;
+}
+
+.player > p {
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 .message {
     font-size: 2rem;
     font-weight: 600;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
 .gameboard {
