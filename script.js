@@ -65,6 +65,11 @@ const gameController = (() => {
                 return;
             }
             round++;
+            if(round === 10) {
+                isOver = true;
+                displayController.setTurnMessage('Draw!');
+                return;
+            }
             displayController.setTurnMessage(`Player ${getCurrentPlayerSign().toUpperCase()} turn`);
         }
     }
