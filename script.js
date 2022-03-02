@@ -32,11 +32,12 @@ const displayController = (() => {
     }
     function updateGameboard() {
         for (let i = 0; i < fields.length; i++) {
-            if((fields[i].textContent = Gameboard.getField(i)) === 'x') {
+            fields[i].textContent = Gameboard.getField(i));
+            if(fields[i].textContent=== 'x') {
                 if(!fields[i].classList.contains('x-color')){
                     fields[i].classList.add('x-color');
                 }
-            } else if((fields[i].textContent = Gameboard.getField(i)) === 'o') {
+            } else if(fields[i].textContent === 'o') {
                 if(!fields[i].classList.contains('o-color')){
                     fields[i].classList.add('o-color');
                 }
