@@ -48,6 +48,7 @@ body > div {
     background-color: rgb(235, 235, 235);
     border: none;
     font-size: 9vh;
+    cursor: pointer;
 }
 
 .footer {
