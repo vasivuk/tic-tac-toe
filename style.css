@@ -61,6 +61,14 @@ body > div {
     align-items: center;
 }
 
+.x-color {
+    color: red;
+}
+
+.o-color {
+    color: blue;
+}
+
 .footer {
     background-color: rgb(150, 150, 150);
     font-weight: 600;
