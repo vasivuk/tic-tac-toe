@@ -87,11 +87,11 @@ body > div {
 }
 
 .x-color {
-    color: red;
+    color: red !important;
 }
 
 .o-color {
-    color: blue;
+    color: blue !important;
 }
 
 .footer {
