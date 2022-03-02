@@ -23,9 +23,11 @@ const Player = (sign, name) => {
 
 const displayController = (() => {
     const fields = document.querySelectorAll('.field');
-    const turnMessage = document.querySelector('.message');
+    const winMessage = document.querySelector('.message');
     const playerXIcon = document.querySelector('#playerX > span');
     const playerOIcon = document.querySelector('#playerO > span');
+    const resetButton = document.querySelector('.reset');
+    
     for (const field of fields) {
         field.addEventListener('click', () => {
             gameController.playGameRound(field.dataset.index);
@@ -35,7 +37,7 @@ const displayController = (() => {
     function updateGameboard() {
         for (let i = 0; i < fields.length; i++) {
             fields[i].textContent = Gameboard.getField(i);
-            if(fields[i].textContent=== 'x') {
+            if(fields[i].textContent === 'x') {
                 if(!fields[i].classList.contains('x-color')){
                     fields[i].classList.add('x-color');
                 }
@@ -57,10 +59,37 @@ const displayController = (() => {
         }
     }
 
-    const setTurnMessage = (message) => {
-        turnMessage.textContent = message;
+    const setWinMessage = (message) => {
+        winMessage.textContent = message;
     }
-    return {setTurnMessage, updateIcons};
+
+    resetButton.addEventListener('click', () => {
+        resetIcons();
+        gameController.reset();
+        resetGameboard();
+        updateGameboard();
+    })
+
+    function resetGameboard() {
+        for(let i = 0; i < fields.length; i++) {
+            Gameboard.setField("", i);
+            if(fields[i].classList.contains('x-color')){
+                fields[i].classList.remove('x-color');
+            } else if(fields[i].classList.contains('o-color')){
+                fields[i].classList.remove('o-color');
+            }
+        }
+        winMessage.textContent = "";
+    }
+
+    function resetIcons() {
+        if (playerOIcon.classList.contains('o-color')) {
+            playerOIcon.classList.remove('o-color');
+            playerXIcon.classList.add('x-color');
+        }
+    }
+
+    return {setTurnMessage: setWinMessage, updateIcons};
 })();
 
 
@@ -86,7 +115,6 @@ const gameController = (() => {
                 return;
             }
             displayController.updateIcons();
-            // displayController.setTurnMessage(`Player ${getCurrentPlayerSign().toUpperCase()} turn`);
         }
     }
 
@@ -104,5 +132,10 @@ const gameController = (() => {
     function getCurrentPlayerSign() {
         return (round % 2 === 0) ? playerO.getSign() : playerX.getSign();
     }
-    return {playGameRound, isOver};
+
+    const reset = () => {
+        round = 1;
+        isOver = false;
+    }
+    return {playGameRound, reset};
 })();

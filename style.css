@@ -95,6 +95,16 @@ body > div {
     color: blue !important;
 }
 
+.reset {
+    font-size: 2rem;
+    border: none;
+    padding: 5px 30px;
+}
+
+.reset:hover {
+    background-color: gray;
+}
+
 .footer {
     background-color: rgb(150, 150, 150);
     font-weight: 600;
