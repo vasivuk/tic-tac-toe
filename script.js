@@ -86,7 +86,7 @@ const gameController = (() => {
                 return;
             }
             displayController.updateIcons();
-            displayController.setTurnMessage(`Player ${getCurrentPlayerSign().toUpperCase()} turn`);
+            // displayController.setTurnMessage(`Player ${getCurrentPlayerSign().toUpperCase()} turn`);
         }
     }
 
