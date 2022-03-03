@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
+:root {
+    --playerX: #b91c1c;
+    --playerO: #2563eb;
+    --primary: #334155;
+    --primary-hover: rgb(32, 42, 54);
+    --secondary: #d1d5db;
+    --text-primary: #e5e7eb;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: rgb(221, 221, 221);
+    background-color: var(--secondary);
     height: 100vh;
     font-family: 'Open Sans', sans-serif;
 }
@@ -21,10 +30,11 @@ body > div {
 }
 
 .header {
-    background-color: rgb(194, 194, 194);
+    background-color: var(--primary);
     font-size: 52px;
     font-weight: 700;
     padding: 20px;
+    color: var(--text-primary);
 }
 
 .main {
@@ -63,22 +73,22 @@ body > div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    justify-content: space-between;
+    height: 70vh;
 }
 
 .gameboard {
     display: grid;
-    background-color: rgb(199, 199, 199);
+    background-color: var(--primary);
     width: 50vh;
     height: 50vh;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 10px;
-    padding: 10px;
 }
 
 .field {
-    background-color: rgb(235, 235, 235);
+    background-color: var(--secondary);
     border: none;
     font-size: 9vh;
     cursor: pointer;
@@ -87,27 +97,36 @@ body > div {
     align-items: center;
 }
 
+.field::before {
+    opacity: 0%;
+}
+
 .x-color {
-    color: red !important;
+    color: var(--playerX) !important;
 }
 
 .o-color {
-    color: blue !important;
+    color: var(--playerO) !important;
 }
 
 .reset {
     font-size: 2rem;
     border: none;
+    background-color: var(--primary);
+    color: var(--text-primary);
+    border-radius: 15px;
     padding: 5px 30px;
+    cursor: pointer;
 }
 
 .reset:hover {
-    background-color: gray;
+    background-color: var(--primary-hover);
 }
 
 .footer {
-    background-color: rgb(150, 150, 150);
+    background-color: var(--primary);
     font-weight: 600;
     font-size: 1.2rem;
+    color: var(--text-primary);
     padding: 15px;
 }
